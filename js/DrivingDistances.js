@@ -74,10 +74,10 @@ function calculate() {
     "use strict";
     stopped = false;
     var units = distanceUnits();
-    var header = "Start\tEnd\t" + units;
-    if (!isCrow()) {
-        header += "\tMinutes\tH:M";
-    }
+    var header = "Start\t\tEnd\t\t" + units ;
+    // if (!isCrow()) {
+    //     header += "\tMinutes\tH:M";
+    // }
     header += "\n";
     $("#distances").val(header);
     $("#results").html("");
@@ -105,16 +105,13 @@ function calculate() {
 function addLine(start, end, distance, minutes, hm) {
     "use strict";
     var csvData = start + "\t" + end + "\t" + distance;
-    if (!isCrow()) {
-        csvData += "\t" + minutes + "\t" + hm;
-    }
     csvData += "\n";
     $("#distances").val($("#distances").val() + csvData);
     // add to table
-    var row = "<tr><td>" + start + "</td><td>" + end + "</td><td>" + distance + "</td>";
-    if (!isCrow()) {
-        row += "<td>" + minutes + "</td><td>" + hm + "</td>";
-    }
+    var row = "<tr><td>" + start + "</td><td>" + end + "</td><td><b>" + distance + "</b></td>";
+    // if (!isCrow()) {
+    //     row += "<td>" + minutes + "</td><td>" + hm + "</td>";
+    // }
     row += "</tr>";
     $("#results").append(row);
 }
@@ -328,7 +325,7 @@ function gotoNextRouteBatch() {
         destinationIndex += 10;
     }
     if (destinationIndex >= splitEndLocs.length) {
-        $("#status").html(" Done");
+        $("#status").html(" Finish");
         $("#delay").html("");
     }
     else {
@@ -438,7 +435,7 @@ function gotoNextGeocode() {
     }
     else {
         if (isCrow()) {
-            $("#status").html(" Done");
+            $("#status").html(" Finish");
             $("#delay").html("");
         }
         else {
@@ -540,7 +537,7 @@ function gotoNext() {
         setTimeout(function () { calculateNext(); }, delay);
     }
     else {
-        $("#status").html(" Done");
+        $("#status").html(" Finish");
         $("#delay").html("");
     }
 }
