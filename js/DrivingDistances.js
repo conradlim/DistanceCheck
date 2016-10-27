@@ -41,7 +41,7 @@ var destinationIndex;
 var errorCount = 0;
 $(document).ready(function () {
   directions = new google.maps.DistanceMatrixService();
-  var latLong = new google.maps.LatLng(54.559322, -4.174804);
+  var latLong = new google.maps.LatLng(36.778259, -119.417931);
   var options = {
       zoom: 5,
       center: latLong,
